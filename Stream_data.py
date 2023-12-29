@@ -4,7 +4,7 @@ import streamlit as st
 # Set background image
 
 
-Leak = pickle.load(open('Pred_lokasi.sav', 'rb'))
+LokasiKM = pickle.load(open('Pred_lokasi.sav', 'rb'))
 
 # Judul Web
 st.title('Finding Oil Losses Pertamina Field Jambi')
@@ -17,7 +17,7 @@ suspect_loct = ''
 
 # Tombol prediksi
 if st.button('Prediksi Lokasi Kebocoran'):
-    prediksi_lokasi = Leak.predict([[float(Titik_1_PSI), float(Titik_2_PSI)]])
+    prediksi_lokasi = LokasiKM.predict([[float(Titik_1_PSI), float(Titik_2_PSI)]])
 
     if prediksi_lokasi[0] == 0:
         suspect_loct = 'Tidak Terdapat Kebocoran'
